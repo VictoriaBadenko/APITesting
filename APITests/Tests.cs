@@ -5,12 +5,12 @@ using APIDemo;
 namespace APITests
 {
     [TestClass]
-    public class RegressionTests
+    public class Tests
     {
         [TestMethod]
         public void VerifyListOfUsers()
         {
-            var demo = new Demo<ListOfUsersDTO>();
+            var demo = new APIService<ListOfUsersDTO>();
             var user = demo.GetUsers("api/users?page=2");
             Assert.AreEqual(2, user.Page);
             Assert.AreEqual("Michael", user.Data[0].first_name);
@@ -23,7 +23,7 @@ namespace APITests
                                 ""name"": ""Mike"",
                                 ""job"": ""Team leader""
                                }";
-            var demo = new Demo<CreateUserDTO>();
+            var demo = new APIService<CreateUserDTO>();
             var user = demo.CreateUser("api/users", payload);
             
 
